@@ -48,6 +48,8 @@ def recall(y_hat: pd.Series, y: pd.Series, cls: Union[int, str]) -> float:
 def rmse(y_hat: pd.Series, y: pd.Series) -> float:
     # Ensure that sizes of y_hat and y are equal.
     assert y_hat.size == y.size
+    assert y_hat.dtype in ['float','int']
+    assert y.dtype in ['float','int']
 
     # Calculate squared differences between predicted and true values
     squared_errors = (y_hat - y) ** 2
@@ -63,6 +65,8 @@ def rmse(y_hat: pd.Series, y: pd.Series) -> float:
 def mae(y_hat: pd.Series, y: pd.Series) -> float:
     # Ensure that sizes of y_hat and y are equal.
     assert y_hat.size == y.size
+    assert y_hat.dtype in ['float','int']
+    assert y.dtype in ['float','int']
 
     # Calculate absolute differences between predicted and true values
     absolute_errors = np.abs(y_hat - y)
